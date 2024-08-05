@@ -19,8 +19,12 @@ export default function handler(
   const ongoing=getActiveTasks();
   const completed=[];
   for(let i=0;i<tasks.length;i++){
-    if(tasks[i].completed===true)completed.push(tasks[i]);
-    else if(ongoing.includes(tasks[i])!==true)todo.push(tasks[i]);
+    if(tasks[i].completed===true){
+      completed.push(tasks[i]);
+    }
+    else if(ongoing.includes(tasks[i])!==true){
+      todo.push(tasks[i]);
+    }
   }
   res.status(200).json({todo:todo,ongoing:ongoing,completed:completed});
 }
